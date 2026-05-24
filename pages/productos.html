@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,25 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Thread — Plataforma de moda que te ayuda a descubrir tu estilo explorando por color, prenda y tendencia.">
   <meta name="keywords" content="moda, outfits, tendencias, ropa, estilo, Thread">
-  <title><?= htmlspecialchars($titulo) ?></title>
+  <title>Thread — Productos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>
-
-
-
 <nav class="tnav">
   <a class="tnav-brand" href="../index.html">
     <img src="../img/logo/logo-jaguar-bc.png" alt="Thread logo">
     Thread
   </a>
   <div class="tnav-links">
-    <a href="../index.html"          <?= $paginaActual==='index.html'          ? 'class="active"':'' ?>>Inicio</a>
-    <a href="../pages/productos.html" <?= $paginaActual==='productos.html'      ? 'class="active"':'' ?>>Productos</a>
-    <a href="../pages/contacto.html"  <?= $paginaActual==='contacto.html'       ? 'class="active"':'' ?>>Contáctanos</a>
-    <a href="../pages/faq.html"       <?= $paginaActual==='faq.html'            ? 'class="active"':'' ?>>FAQ</a>
-    <a href="../pages/contacto.html"  class="btn-cuenta">Mi cuenta →</a>
+    <a href="../index.html" >Inicio</a>
+    <a href="../pages/productos.html" class="active">Productos</a>
+    <a href="../pages/contacto.html" >Contáctanos</a>
+    <a href="../pages/faq.html" >FAQ</a>
+    <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
   </div>
   <button class="tnav-burger" id="burger" aria-label="Abrir menú" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -37,11 +33,7 @@
   <a href="../pages/contacto.html">Contáctanos</a>
   <a href="../pages/faq.html">FAQ</a>
   <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
-</div>
-
-
-
-<!-- COLORES -->
+</div><!-- COLORES -->
 <section id="colores">
   <div class="breadcrumb" style="padding:0 0 10px;">02 / Explorar por Color</div>
   <h2 class="page-title">Explorar <em>por Color</em></h2>
@@ -53,18 +45,175 @@
         <span class="paleta-label">Paleta · 20 colores</span>
         <p style="font-size:12px; margin-bottom:10px; color:var(--texto-light); font-family:var(--font-sans);">Selecciona un color</p>
         <table border="0" cellspacing="6" cellpadding="0">
-          
           <tr>
-            
             <td>
-              <a href="#prendas" onclick="filtrarColor('<?= $c[0] ?>')" title="<?= $c[0] ?>">
-                <img src="https://placehold.co/32x32/<?= $c[1] ?>/<?= $c[2] ?>?text=+"
-                  alt="<?= $c[0] ?>" width="32"
+              <a href="#prendas" onclick="filtrarColor('Negro')" title="Negro">
+                <img src="https://placehold.co/32x32/1a1a1a/fff?text=+"
+                  alt="Negro" width="32"
                   style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
               </a><br>
-              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);"><?= $c[0] ?></small>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Negro</small>
             </td>
-            
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Marino')" title="Marino">
+                <img src="https://placehold.co/32x32/1c2b4a/fff?text=+"
+                  alt="Marino" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Marino</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Oliva')" title="Oliva">
+                <img src="https://placehold.co/32x32/4a4a2a/fff?text=+"
+                  alt="Oliva" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Oliva</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Cafe')" title="Cafe">
+                <img src="https://placehold.co/32x32/6b4c2a/fff?text=+"
+                  alt="Cafe" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Cafe</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Azul')" title="Azul">
+                <img src="https://placehold.co/32x32/3498db/fff?text=+"
+                  alt="Azul" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Azul</small>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Verde')" title="Verde">
+                <img src="https://placehold.co/32x32/27ae60/fff?text=+"
+                  alt="Verde" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Verde</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Esmeralda')" title="Esmeralda">
+                <img src="https://placehold.co/32x32/1a7a4a/fff?text=+"
+                  alt="Esmeralda" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Esmeralda</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Turquesa')" title="Turquesa">
+                <img src="https://placehold.co/32x32/1abc9c/fff?text=+"
+                  alt="Turquesa" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Turquesa</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Rojo')" title="Rojo">
+                <img src="https://placehold.co/32x32/c0392b/fff?text=+"
+                  alt="Rojo" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Rojo</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Naranja')" title="Naranja">
+                <img src="https://placehold.co/32x32/e67e22/fff?text=+"
+                  alt="Naranja" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Naranja</small>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Ambar')" title="Ambar">
+                <img src="https://placehold.co/32x32/e0a020/fff?text=+"
+                  alt="Ambar" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Ambar</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Amarillo')" title="Amarillo">
+                <img src="https://placehold.co/32x32/f1c40f/fff?text=+"
+                  alt="Amarillo" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Amarillo</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Violeta')" title="Violeta">
+                <img src="https://placehold.co/32x32/9b59b6/fff?text=+"
+                  alt="Violeta" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Violeta</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Lila')" title="Lila">
+                <img src="https://placehold.co/32x32/c39bd3/fff?text=+"
+                  alt="Lila" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Lila</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Blanco')" title="Blanco">
+                <img src="https://placehold.co/32x32/f5f3ef/ccc?text=+"
+                  alt="Blanco" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Blanco</small>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Plata')" title="Plata">
+                <img src="https://placehold.co/32x32/bdc3c7/fff?text=+"
+                  alt="Plata" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Plata</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Gris')" title="Gris">
+                <img src="https://placehold.co/32x32/95a5a6/fff?text=+"
+                  alt="Gris" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Gris</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Marfil')" title="Marfil">
+                <img src="https://placehold.co/32x32/f8f4ec/ccc?text=+"
+                  alt="Marfil" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Marfil</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Melocoton')" title="Melocoton">
+                <img src="https://placehold.co/32x32/f4a460/fff?text=+"
+                  alt="Melocoton" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Melocoton</small>
+            </td>
+            <td>
+              <a href="#prendas" onclick="filtrarColor('Crema')" title="Crema">
+                <img src="https://placehold.co/32x32/fdf5e6/ccc?text=+"
+                  alt="Crema" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);">Crema</small>
+            </td>
+          </tr>
+          
           </tr>
           
         </table>
@@ -82,7 +231,11 @@
         <table border="0" cellspacing="6" cellpadding="0">
           <tr>
             
-            <td><img src="https://placehold.co/40x40/<?= $hex ?>/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            <td><img src="https://placehold.co/40x40/e0a020/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            <td><img src="https://placehold.co/40x40/2c3e50/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            <td><img src="https://placehold.co/40x40/bdc3c7/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            <td><img src="https://placehold.co/40x40/2c3e50/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            <td><img src="https://placehold.co/40x40/f5f3ef/ccc?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
             
           </tr>
         </table>
@@ -99,13 +252,54 @@
         <!-- Grid prendas por color (con data-tipo para filtrar) -->
         <div id="grid-colores" style="display:flex; flex-wrap:wrap; gap:14px; margin-top:18px;">
           
-          <div class="card-color-prenda" data-tipo="<?= $p[2] ?>" style="width:calc(25% - 11px);">
-            <img src="<?= $p[1] ?>" alt="<?= $p[0] ?>" loading="lazy"
+          <div class="card-color-prenda" data-tipo="camisa" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/camisa-lino.jpg" alt="Camisa Oxford" loading="lazy"
               style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
-            <p class="product-name"><?= $p[0] ?></p>
+            <p class="product-name">Camisa Oxford</p>
             <p><a href="tienda.html" class="link-ver">Ver →</a></p>
           </div>
-          
+          <div class="card-color-prenda" data-tipo="camisa" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/blazer-crudo.jpeg" alt="Blazer" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Blazer</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="vestido" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/vestido-midi.jpg" alt="Vestido Midi" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Vestido Midi</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="camisa" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/top-tejido.jpeg" alt="Camiseta" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Camiseta</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="pantalon" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/pantalon-wide.jpg" alt="Pantalon" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Pantalon</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="pantalon" style="width:calc(25% - 11px);">
+            <img src="../img/guardarropa/jeans-rectos.jpg" alt="Jeans" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Jeans</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="vestido" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/falda-plisada.jpg" alt="Falda" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Falda</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          <div class="card-color-prenda" data-tipo="camisa" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/trench.jpg" alt="Chaqueta" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name">Chaqueta</p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
         </div>
         <p id="sin-resultados-color" style="display:none; color:var(--texto-light); font-family:var(--font-sans); font-size:13px; margin-top:16px;">
           No hay prendas en esta categoría.
@@ -119,9 +313,16 @@
           
           <tr>
             <td>
-              <img src="<?= $img ?>" alt="Look 0<?= $i+1 ?>" width="100%" loading="lazy"
+              <img src="../img/colores/look-azul-01.jpg" alt="Look 01" width="100%" loading="lazy"
                 style="display:block; height:140px; object-fit:cover; background:var(--hueso); border-radius:8px;">
-              <p style="font-size:11px; font-style:italic; color:var(--texto-light); margin-top:6px; font-family:var(--font-sans);">Look 0<?= $i+1 ?></p>
+              <p style="font-size:11px; font-style:italic; color:var(--texto-light); margin-top:6px; font-family:var(--font-sans);">Look 01</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img src="../img/colores/look-azul-03.jpg" alt="Look 02" width="100%" loading="lazy"
+                style="display:block; height:140px; object-fit:cover; background:var(--hueso); border-radius:8px;">
+              <p style="font-size:11px; font-style:italic; color:var(--texto-light); margin-top:6px; font-family:var(--font-sans);">Look 02</p>
             </td>
           </tr>
           
@@ -165,24 +366,51 @@
           
           <tr>
             <td colspan="2">
-              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);"><?= $titulo ?></p>
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);">Categoría</p>
             </td>
           </tr>
-          
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="camisa" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Camisas / Blusas</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="pantalon" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Pantalones</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="vestido" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Vestidos</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="falda" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Faldas</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="abrigo" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Abrigos</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="categoria" data-valor="accesorio" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Accesorios</label></td></tr>
           <tr>
-            <td>
-              <label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);">
-                <input
-                  type="checkbox"
-                  class="filtro-check"
-                  data-grupo="<?= $item[1] ?>"
-                  data-valor="<?= $item[2] ?>"
-                  onchange="aplicarFiltros()"
-                  style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">
-                <?= $item[0] ?>
-              </label>
+            <td colspan="2">
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);">Color</p>
             </td>
           </tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="color" data-valor="neutro" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Neutros</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="color" data-valor="tierra" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Tonos tierra</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="color" data-valor="azul" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Azules</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="color" data-valor="verde" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Verdes</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="color" data-valor="pastel" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Pasteles</label></td></tr>
+          <tr>
+            <td colspan="2">
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);">Ocasión</p>
+            </td>
+          </tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="ocasion" data-valor="casual" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Casual</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="ocasion" data-valor="formal" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Formal</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="ocasion" data-valor="trabajo" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">Trabajo</label></td></tr>
+          <tr>
+            <td colspan="2">
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);">Talla</p>
+            </td>
+          </tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="talla" data-valor="xs" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">XS</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="talla" data-valor="s" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">S</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="talla" data-valor="m" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">M</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="talla" data-valor="l" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">L</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="talla" data-valor="xl" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">XL</label></td></tr>
+          <tr>
+            <td colspan="2">
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);">Precio</p>
+            </td>
+          </tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="precio" data-valor="0-500" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">$0–$500</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="precio" data-valor="500-1000" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">$500–$1,000</label></td></tr>
+          <tr><td><label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);"><input type="checkbox" class="filtro-check" data-grupo="precio" data-valor="1000+" onchange="aplicarFiltros()" style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">$1,000+</label></td></tr>
           
         </table>
       </td>
@@ -207,19 +435,76 @@
         <!-- Grid de prendas — cada tarjeta tiene data-* para filtrar/ordenar -->
         <div id="grid-prendas" style="display:flex; flex-wrap:wrap; gap:14px;">
           
-          <div class="tarjeta-prenda"
-               data-categoria="<?= $p[2] ?>"
-               data-color="<?= $p[3] ?>"
-               data-ocasion="<?= $p[4] ?>"
-               data-talla="<?= $p[5] ?>"
-               data-precio="<?= $p[6] ?>"
-               data-orden="<?= $p[7] ?>"
-               data-idx="<?= $i ?>"
-               style="width:calc(25% - 11px);">
-            <img src="<?= $p[1] ?>" alt="<?= $p[0] ?>" loading="lazy"
-              style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
-            <p class="product-name"><?= $p[0] ?></p>
-            <p class="product-price" style="font-size:13px;"><?= $precio_txt ?></p>
+          <div class="tarjeta-prenda" data-categoria="abrigo" data-color="tierra" data-ocasion="trabajo" data-talla="m" data-precio="1890" data-orden="nuevo" data-idx="0" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/blazer-camel.jpg" alt="Blazer Camel" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Blazer Camel</p>
+            <p class="product-price" style="font-size:13px;">$1,890</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="camisa" data-color="neutro" data-ocasion="casual" data-talla="s" data-precio="890" data-orden="clasico" data-idx="1" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/camisa-lino.jpg" alt="Camisa Oxford" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Camisa Oxford</p>
+            <p class="product-price" style="font-size:13px;">$890</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="vestido" data-color="neutro" data-ocasion="formal" data-talla="m" data-precio="1590" data-orden="nuevo" data-idx="2" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/vestido-midi.jpg" alt="Vestido Midi" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Vestido Midi</p>
+            <p class="product-price" style="font-size:13px;">$1,590</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="camisa" data-color="tierra" data-ocasion="casual" data-talla="l" data-precio="1200" data-orden="clasico" data-idx="3" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/cardigan.avif" alt="Cardigan" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Cardigan</p>
+            <p class="product-price" style="font-size:13px;">$1,200</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="falda" data-color="neutro" data-ocasion="formal" data-talla="s" data-precio="980" data-orden="nuevo" data-idx="4" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/falda-plisada.jpg" alt="Falda Plisada" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Falda Plisada</p>
+            <p class="product-price" style="font-size:13px;">$980</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="pantalon" data-color="neutro" data-ocasion="trabajo" data-talla="m" data-precio="1290" data-orden="clasico" data-idx="5" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/pantalon-wide.jpg" alt="Pantalon Wide" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Pantalon Wide</p>
+            <p class="product-price" style="font-size:13px;">$1,290</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="camisa" data-color="tierra" data-ocasion="casual" data-talla="m" data-precio="750" data-orden="clasico" data-idx="6" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/jersey-camel.jpeg" alt="Jersey Camel" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Jersey Camel</p>
+            <p class="product-price" style="font-size:13px;">$750</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="abrigo" data-color="tierra" data-ocasion="trabajo" data-talla="l" data-precio="3200" data-orden="nuevo" data-idx="7" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/trench.jpg" alt="Trench" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Trench</p>
+            <p class="product-price" style="font-size:13px;">$3,200</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="abrigo" data-color="neutro" data-ocasion="formal" data-talla="s" data-precio="1890" data-orden="clasico" data-idx="8" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/blazer-crudo.jpeg" alt="Blazer Crudo" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Blazer Crudo</p>
+            <p class="product-price" style="font-size:13px;">$1,890</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="camisa" data-color="neutro" data-ocasion="formal" data-talla="m" data-precio="1100" data-orden="nuevo" data-idx="9" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/blusa-seda.jpg" alt="Blusa Seda" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Blusa Seda</p>
+            <p class="product-price" style="font-size:13px;">$1,100</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="accesorio" data-color="neutro" data-ocasion="casual" data-talla="m" data-precio="2800" data-orden="clasico" data-idx="10" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/loafers.jpeg" alt="Loafers" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Loafers</p>
+            <p class="product-price" style="font-size:13px;">$2,800</p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          <div class="tarjeta-prenda" data-categoria="pantalon" data-color="neutro" data-ocasion="casual" data-talla="s" data-precio="650" data-orden="nuevo" data-idx="11" style="width:calc(25% - 11px);">
+            <img src="../img/prendas/shorts-lino.webp" alt="Shorts Lino" loading="lazy" style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name">Shorts Lino</p>
+            <p class="product-price" style="font-size:13px;">$650</p>
             <a href="tienda.html" class="btn-prenda">Ver prenda</a>
           </div>
           
@@ -404,8 +689,6 @@
     document.getElementById('contador-resultados').textContent = n + ' resultado' + (n !== 1 ? 's' : '');
   }
 </script>
-
-
 
 
 <hr class="divider">
