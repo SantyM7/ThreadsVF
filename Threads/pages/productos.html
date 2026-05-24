@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thread — Plataforma de moda que te ayuda a descubrir tu estilo explorando por color, prenda y tendencia.">
+  <meta name="keywords" content="moda, outfits, tendencias, ropa, estilo, Thread">
+  <title><?= htmlspecialchars($titulo) ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+
+
+
+<nav class="tnav">
+  <a class="tnav-brand" href="../index.html">
+    <img src="../img/logo/logo-jaguar-bc.png" alt="Thread logo">
+    Thread
+  </a>
+  <div class="tnav-links">
+    <a href="../index.html"          <?= $paginaActual==='index.html'          ? 'class="active"':'' ?>>Inicio</a>
+    <a href="../pages/productos.html" <?= $paginaActual==='productos.html'      ? 'class="active"':'' ?>>Productos</a>
+    <a href="../pages/contacto.html"  <?= $paginaActual==='contacto.html'       ? 'class="active"':'' ?>>Contáctanos</a>
+    <a href="../pages/faq.html"       <?= $paginaActual==='faq.html'            ? 'class="active"':'' ?>>FAQ</a>
+    <a href="../pages/contacto.html"  class="btn-cuenta">Mi cuenta →</a>
+  </div>
+  <button class="tnav-burger" id="burger" aria-label="Abrir menú" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="tnav-mobile" id="mobileMenu">
+  <a href="../index.html">Inicio</a>
+  <a href="../pages/productos.html">Productos</a>
+  <a href="../pages/contacto.html">Contáctanos</a>
+  <a href="../pages/faq.html">FAQ</a>
+  <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
+</div>
+
+
+
+<!-- COLORES -->
+<section id="colores">
+  <div class="breadcrumb" style="padding:0 0 10px;">02 / Explorar por Color</div>
+  <h2 class="page-title">Explorar <em>por Color</em></h2>
+
+  <table border="0" cellspacing="0" cellpadding="0" width="100%" style="margin-top:28px;">
+    <tr>
+      <!-- Sidebar: paleta -->
+      <td width="200" valign="top" style="padding-right:32px;">
+        <span class="paleta-label">Paleta · 20 colores</span>
+        <p style="font-size:12px; margin-bottom:10px; color:var(--texto-light); font-family:var(--font-sans);">Selecciona un color</p>
+        <table border="0" cellspacing="6" cellpadding="0">
+          
+          <tr>
+            
+            <td>
+              <a href="#prendas" onclick="filtrarColor('<?= $c[0] ?>')" title="<?= $c[0] ?>">
+                <img src="https://placehold.co/32x32/<?= $c[1] ?>/<?= $c[2] ?>?text=+"
+                  alt="<?= $c[0] ?>" width="32"
+                  style="height:32px; border:0.5px solid var(--borde); border-radius:4px; cursor:pointer;">
+              </a><br>
+              <small style="font-family:var(--font-sans); font-size:9px; letter-spacing:1px; color:var(--texto-light);"><?= $c[0] ?></small>
+            </td>
+            
+          </tr>
+          
+        </table>
+      </td>
+
+      <!-- Contenido central -->
+      <td valign="top">
+        <div class="color-header">
+          Azul &nbsp;·&nbsp; #3498DB &nbsp;·&nbsp; 34 prendas &nbsp;·&nbsp; 18 outfits
+          &nbsp;&nbsp;
+          <a href="outfits.html" style="background:var(--crema); color:var(--oliva); padding:5px 14px; text-decoration:none; font-size:10px; border-radius:999px; letter-spacing:1px; font-family:var(--font-sans);">Ver outfits →</a>
+        </div>
+
+        <p style="font-size:11px; color:var(--texto-light); margin:14px 0 8px; font-family:var(--font-sans); letter-spacing:1px; text-transform:uppercase;">Combina con</p>
+        <table border="0" cellspacing="6" cellpadding="0">
+          <tr>
+            
+            <td><img src="https://placehold.co/40x40/<?= $hex ?>/fff?text=+" alt="" width="40" style="height:40px; border-radius:6px; border:0.5px solid var(--borde);"></td>
+            
+          </tr>
+        </table>
+
+        <!-- Tabs de tipo de prenda (filtro JS) -->
+        <p style="margin-top:18px;" class="filter-tabs" id="tabs-tipo">
+          <a href="#prendas" class="active" onclick="filtrarTipo('todo', this)">Todo</a>
+          <a href="#prendas" onclick="filtrarTipo('camisa', this)">Camisas</a>
+          <a href="#prendas" onclick="filtrarTipo('pantalon', this)">Pantalones</a>
+          <a href="#prendas" onclick="filtrarTipo('vestido', this)">Vestidos</a>
+          <a href="#prendas" onclick="filtrarTipo('accesorio', this)">Accesorios</a>
+        </p>
+
+        <!-- Grid prendas por color (con data-tipo para filtrar) -->
+        <div id="grid-colores" style="display:flex; flex-wrap:wrap; gap:14px; margin-top:18px;">
+          
+          <div class="card-color-prenda" data-tipo="<?= $p[2] ?>" style="width:calc(25% - 11px);">
+            <img src="<?= $p[1] ?>" alt="<?= $p[0] ?>" loading="lazy"
+              style="display:block; width:100%; height:180px; object-fit:cover; background:var(--hueso); border-radius:6px;">
+            <p class="product-name"><?= $p[0] ?></p>
+            <p><a href="tienda.html" class="link-ver">Ver →</a></p>
+          </div>
+          
+        </div>
+        <p id="sin-resultados-color" style="display:none; color:var(--texto-light); font-family:var(--font-sans); font-size:13px; margin-top:16px;">
+          No hay prendas en esta categoría.
+        </p>
+      </td>
+
+      <!-- Sidebar derecho: outfits -->
+      <td width="240" valign="top" style="padding-left:28px;">
+        <p style="font-family:var(--font-sans); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva); margin-bottom:14px;"><strong>Outfits en Azul</strong></p>
+        <table border="0" cellspacing="10" cellpadding="0" width="100%">
+          
+          <tr>
+            <td>
+              <img src="<?= $img ?>" alt="Look 0<?= $i+1 ?>" width="100%" loading="lazy"
+                style="display:block; height:140px; object-fit:cover; background:var(--hueso); border-radius:8px;">
+              <p style="font-size:11px; font-style:italic; color:var(--texto-light); margin-top:6px; font-family:var(--font-sans);">Look 0<?= $i+1 ?></p>
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+</section>
+
+<hr class="divider">
+
+<!-- CATÁLOGO DE PRENDAS -->
+<section id="prendas">
+  <div class="breadcrumb" style="padding:0 0 10px;">03 / Prendas</div>
+
+  <table border="0" width="100%" cellspacing="0" cellpadding="0" style="margin-bottom:16px;">
+    <tr>
+      <td>
+        <span class="section-label">Catálogo</span>
+        <h2 class="section-heading">Prendas</h2>
+      </td>
+      <td align="right">
+        <p id="contador-resultados" style="font-size:11px; color:var(--texto-light); font-family:var(--font-sans); letter-spacing:1px;">12 resultados</p>
+      </td>
+    </tr>
+  </table>
+
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <!-- Sidebar filtros -->
+      <td class="sidebar" valign="top">
+        <table border="0" width="100%" cellspacing="0" cellpadding="5">
+          <tr>
+            <td colspan="2">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <span style="font-family:var(--font-sans); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva); font-weight:bold;">Filtros</span>
+                <a href="#prendas" onclick="limpiarFiltros(event)" style="font-size:10px; color:var(--terracota); text-decoration:none; font-family:var(--font-sans); letter-spacing:1px;">Limpiar todo</a>
+              </div>
+            </td>
+          </tr>
+          
+          <tr>
+            <td colspan="2">
+              <p style="font-family:var(--font-sans); font-size:9px; font-weight:bold; margin:14px 0 8px; text-transform:uppercase; letter-spacing:2px; color:var(--texto-light);"><?= $titulo ?></p>
+            </td>
+          </tr>
+          
+          <tr>
+            <td>
+              <label style="font-size:13px; display:flex; align-items:center; gap:8px; cursor:pointer; color:var(--texto-med);">
+                <input
+                  type="checkbox"
+                  class="filtro-check"
+                  data-grupo="<?= $item[1] ?>"
+                  data-valor="<?= $item[2] ?>"
+                  onchange="aplicarFiltros()"
+                  style="width:auto; margin:0; padding:0; accent-color:var(--terracota);">
+                <?= $item[0] ?>
+              </label>
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+
+      <!-- Grid prendas -->
+      <td valign="top">
+
+        <!-- Ordenar -->
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <p class="filter-tabs" style="margin:0;">
+            Ordenar: &nbsp;
+            <a href="#prendas" class="orden-tab active" onclick="ordenar('relevancia', this)">Relevancia</a>
+            <a href="#prendas" class="orden-tab"         onclick="ordenar('nuevo', this)">Nuevo</a>
+            <a href="#prendas" class="orden-tab"         onclick="ordenar('precio-asc', this)">Precio ↑</a>
+            <a href="#prendas" class="orden-tab"         onclick="ordenar('precio-desc', this)">Precio ↓</a>
+          </p>
+        </div>
+
+        <!-- Chips de filtros activos -->
+        <div id="chips-activos" style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; min-height:24px;"></div>
+
+        <!-- Grid de prendas — cada tarjeta tiene data-* para filtrar/ordenar -->
+        <div id="grid-prendas" style="display:flex; flex-wrap:wrap; gap:14px;">
+          
+          <div class="tarjeta-prenda"
+               data-categoria="<?= $p[2] ?>"
+               data-color="<?= $p[3] ?>"
+               data-ocasion="<?= $p[4] ?>"
+               data-talla="<?= $p[5] ?>"
+               data-precio="<?= $p[6] ?>"
+               data-orden="<?= $p[7] ?>"
+               data-idx="<?= $i ?>"
+               style="width:calc(25% - 11px);">
+            <img src="<?= $p[1] ?>" alt="<?= $p[0] ?>" loading="lazy"
+              style="display:block; width:100%; height:200px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm);">
+            <p class="product-name"><?= $p[0] ?></p>
+            <p class="product-price" style="font-size:13px;"><?= $precio_txt ?></p>
+            <a href="tienda.html" class="btn-prenda">Ver prenda</a>
+          </div>
+          
+        </div>
+
+        <p id="sin-resultados" style="display:none; color:var(--texto-light); font-family:var(--font-sans); font-size:13px; padding:24px 0;">
+          No se encontraron prendas con los filtros seleccionados.
+          <a href="#prendas" onclick="limpiarFiltros(event)" style="color:var(--terracota);">Limpiar filtros</a>
+        </p>
+
+      </td>
+    </tr>
+  </table>
+</section>
+
+<!-- ── JavaScript de filtros ── -->
+<script>
+  // ── Estado global ──
+  var filtrosActivos = {};   // { categoria: ['camisa','abrigo'], color: ['neutro'], ... }
+  var ordenActual    = 'relevancia';
+
+  // ── 1. Filtro de tabs de tipo en sección Colores ──
+  function filtrarTipo(tipo, el) {
+    // Actualizar tab activo
+    document.querySelectorAll('#tabs-tipo a').forEach(function(a) { a.classList.remove('active'); });
+    el.classList.add('active');
+
+    // Mostrar/ocultar tarjetas
+    var cards = document.querySelectorAll('.card-color-prenda');
+    var visibles = 0;
+    cards.forEach(function(card) {
+      var mostrar = tipo === 'todo' || card.dataset.tipo === tipo;
+      card.style.display = mostrar ? 'block' : 'none';
+      if (mostrar) visibles++;
+    });
+    document.getElementById('sin-resultados-color').style.display = visibles === 0 ? 'block' : 'none';
+    return false;
+  }
+
+  // ── 2. Filtro de color (paleta) → activa categoría en catálogo ──
+  function filtrarColor(nombreColor) {
+    // Mapear nombre de color a data-color del catálogo
+    var mapa = {
+      'Negro':'neutro','Marino':'neutro','Blanco':'neutro','Plata':'neutro',
+      'Gris':'neutro','Marfil':'neutro','Crema':'neutro',
+      'Cafe':'tierra','Oliva':'tierra','Ambar':'tierra','Melocoton':'tierra',
+      'Azul':'azul','Marino':'azul',
+      'Verde':'verde','Esmeralda':'verde','Turquesa':'verde',
+      'Lila':'pastel','Violeta':'pastel','Naranja':'pastel','Amarillo':'pastel',
+      'Rojo':'neutro',
+    };
+    var valor = mapa[nombreColor] || 'neutro';
+
+    // Marcar el checkbox correspondiente y aplicar
+    var check = document.querySelector('.filtro-check[data-grupo="color"][data-valor="'+valor+'"]');
+    if (check) {
+      // Desmarcar todos los de color primero
+      document.querySelectorAll('.filtro-check[data-grupo="color"]').forEach(function(c){ c.checked = false; });
+      check.checked = true;
+      aplicarFiltros();
+    }
+  }
+
+  // ── 3. Aplicar todos los filtros activos al grid de prendas ──
+  function aplicarFiltros() {
+    // Recolectar checkboxes marcados
+    filtrosActivos = {};
+    document.querySelectorAll('.filtro-check:checked').forEach(function(ch) {
+      var g = ch.dataset.grupo;
+      var v = ch.dataset.valor;
+      if (!filtrosActivos[g]) filtrosActivos[g] = [];
+      filtrosActivos[g].push(v);
+    });
+
+    // Filtrar prendas por precio separado
+    function cumplePrecio(precio, filtros) {
+      if (!filtros || filtros.length === 0) return true;
+      return filtros.some(function(f) {
+        if (f === '0-500')    return precio <= 500;
+        if (f === '500-1000') return precio > 500 && precio <= 1000;
+        if (f === '1000+')    return precio > 1000;
+        return true;
+      });
+    }
+
+    var tarjetas = Array.from(document.querySelectorAll('.tarjeta-prenda'));
+    var visibles  = 0;
+
+    tarjetas.forEach(function(t) {
+      var ok = true;
+      if (filtrosActivos.categoria && !filtrosActivos.categoria.includes(t.dataset.categoria)) ok = false;
+      if (filtrosActivos.color     && !filtrosActivos.color.includes(t.dataset.color))         ok = false;
+      if (filtrosActivos.ocasion   && !filtrosActivos.ocasion.includes(t.dataset.ocasion))     ok = false;
+      if (filtrosActivos.talla     && !filtrosActivos.talla.includes(t.dataset.talla))         ok = false;
+      if (!cumplePrecio(parseInt(t.dataset.precio), filtrosActivos.precio))                    ok = false;
+
+      t.style.display = ok ? 'block' : 'none';
+      if (ok) visibles++;
+    });
+
+    // Aplicar orden sobre los visibles
+    ordenarDOM();
+    actualizarContador(visibles);
+    mostrarChips();
+    document.getElementById('sin-resultados').style.display = visibles === 0 ? 'block' : 'none';
+  }
+
+  // ── 4. Ordenar tarjetas en el DOM ──
+  function ordenar(tipo, el) {
+    if (el) {
+      document.querySelectorAll('.orden-tab').forEach(function(a){ a.classList.remove('active'); });
+      el.classList.add('active');
+    }
+    ordenActual = tipo;
+    ordenarDOM();
+    return false;
+  }
+
+  function ordenarDOM() {
+    var grid     = document.getElementById('grid-prendas');
+    var tarjetas = Array.from(grid.querySelectorAll('.tarjeta-prenda'));
+
+    tarjetas.sort(function(a, b) {
+      if (ordenActual === 'precio-asc')  return parseInt(a.dataset.precio) - parseInt(b.dataset.precio);
+      if (ordenActual === 'precio-desc') return parseInt(b.dataset.precio) - parseInt(a.dataset.precio);
+      if (ordenActual === 'nuevo') {
+        var an = a.dataset.orden === 'nuevo' ? 0 : 1;
+        var bn = b.dataset.orden === 'nuevo' ? 0 : 1;
+        return an - bn;
+      }
+      return parseInt(a.dataset.idx) - parseInt(b.dataset.idx); // relevancia = orden original
+    });
+
+    tarjetas.forEach(function(t) { grid.appendChild(t); });
+  }
+
+  // ── 5. Chips de filtros activos ──
+  function mostrarChips() {
+    var contenedor = document.getElementById('chips-activos');
+    contenedor.innerHTML = '';
+
+    var etiquetas = {
+      categoria: { camisa:'Camisas/Blusas', pantalon:'Pantalones', vestido:'Vestidos', falda:'Faldas', abrigo:'Abrigos', accesorio:'Accesorios' },
+      color:     { neutro:'Neutros', tierra:'Tonos tierra', azul:'Azules', verde:'Verdes', pastel:'Pasteles' },
+      ocasion:   { casual:'Casual', formal:'Formal', trabajo:'Trabajo', fiesta:'Fiesta', deporte:'Deporte' },
+      talla:     { xs:'XS', s:'S', m:'M', l:'L', xl:'XL' },
+      precio:    { '0-500':'$0–$500', '500-1000':'$500–$1000', '1000+':'$1000+' },
+    };
+
+    Object.keys(filtrosActivos).forEach(function(grupo) {
+      filtrosActivos[grupo].forEach(function(valor) {
+        var label = (etiquetas[grupo] && etiquetas[grupo][valor]) ? etiquetas[grupo][valor] : valor;
+        var chip  = document.createElement('span');
+        chip.style.cssText = 'display:inline-flex; align-items:center; gap:5px; background:var(--hueso); border:0.5px solid var(--borde-med); border-radius:999px; padding:3px 10px; font-size:11px; font-family:var(--font-sans); color:var(--texto-med); cursor:default;';
+        chip.innerHTML = label + ' <span onclick="quitarFiltro(\''+grupo+'\',\''+valor+'\')" style="cursor:pointer; color:var(--terracota); font-size:13px; line-height:1;">×</span>';
+        contenedor.appendChild(chip);
+      });
+    });
+  }
+
+  // ── 6. Quitar un filtro individual desde el chip ──
+  function quitarFiltro(grupo, valor) {
+    var check = document.querySelector('.filtro-check[data-grupo="'+grupo+'"][data-valor="'+valor+'"]');
+    if (check) check.checked = false;
+    aplicarFiltros();
+  }
+
+  // ── 7. Limpiar todos los filtros ──
+  function limpiarFiltros(e) {
+    if (e) e.preventDefault();
+    document.querySelectorAll('.filtro-check').forEach(function(c){ c.checked = false; });
+    filtrosActivos = {};
+    document.querySelectorAll('.tarjeta-prenda').forEach(function(t){ t.style.display = 'block'; });
+    actualizarContador(document.querySelectorAll('.tarjeta-prenda').length);
+    mostrarChips();
+    document.getElementById('sin-resultados').style.display = 'none';
+    ordenarDOM();
+  }
+
+  // ── 8. Actualizar contador ──
+  function actualizarContador(n) {
+    document.getElementById('contador-resultados').textContent = n + ' resultado' + (n !== 1 ? 's' : '');
+  }
+</script>
+
+
+
+
+<hr class="divider">
+
+<footer>
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <strong style="color:var(--crema); font-family:var(--font-serif); letter-spacing:2px;">Thread</strong>
+        &nbsp;
+        <em style="color:rgba(160,153,122,0.8); font-size:11px;">Wear the Moment</em>
+      </td>
+      <td align="center">
+        <a href="../index.html">Inicio</a>
+        <a href="../pages/productos.html">Productos</a>
+        <a href="../pages/tendencias.html">Tendencias</a>
+        <a href="../pages/outfits.html">Outfits</a>
+        <a href="../pages/tienda.html">Tienda</a>
+        <a href="../pages/nosotros.html">Nosotros</a>
+        <a href="../pages/contacto.html">Contacto</a>
+        <a href="../pages/faq.html">FAQ</a>
+      </td>
+      <td align="right">
+        <small style="color:rgba(160,153,122,0.7);">© 2026 Thread</small>
+      </td>
+    </tr>
+  </table>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobileMenu');
+    var b = document.getElementById('burger');
+    var open = m.style.display === 'flex';
+    m.style.display = open ? 'none' : 'flex';
+    b.classList.toggle('open', !open);
+  }
+</script>
+</body>
+</html>
