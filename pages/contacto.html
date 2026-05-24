@@ -1,30 +1,27 @@
 
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Thread — Plataforma de moda que te ayuda a descubrir tu estilo explorando por color, prenda y tendencia.">
   <meta name="keywords" content="moda, outfits, tendencias, ropa, estilo, Thread">
-  <title><?= htmlspecialchars($titulo) ?></title>
+  <title>Thread — Contáctanos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>
-
-
-
 <nav class="tnav">
   <a class="tnav-brand" href="../index.html">
     <img src="../img/logo/logo-jaguar-bc.png" alt="Thread logo">
     Thread
   </a>
   <div class="tnav-links">
-    <a href="../index.html"          <?= $paginaActual==='index.html'          ? 'class="active"':'' ?>>Inicio</a>
-    <a href="../pages/productos.html" <?= $paginaActual==='productos.html'      ? 'class="active"':'' ?>>Productos</a>
-    <a href="../pages/contacto.html"  <?= $paginaActual==='contacto.html'       ? 'class="active"':'' ?>>Contáctanos</a>
-    <a href="../pages/faq.html"       <?= $paginaActual==='faq.html'            ? 'class="active"':'' ?>>FAQ</a>
-    <a href="../pages/contacto.html"  class="btn-cuenta">Mi cuenta →</a>
+    <a href="../index.html" >Inicio</a>
+    <a href="../pages/productos.html" >Productos</a>
+    <a href="../pages/contacto.html" class="active">Contáctanos</a>
+    <a href="../pages/faq.html" >FAQ</a>
+    <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
   </div>
   <button class="tnav-burger" id="burger" aria-label="Abrir menú" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -38,9 +35,6 @@
   <a href="../pages/faq.html">FAQ</a>
   <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
 </div>
-
-
-
 <section id="contacto" class="py-5 px-4" style="background-color:var(--crema);">
   <div class="container">
     <span class="section-label">Habla con nosotros</span>
@@ -79,72 +73,45 @@
         <div class="thread-form-wrapper">
           <h5 style="font-family:Georgia,serif; font-weight:normal; margin-bottom:12px;">Envíanos un mensaje</h5>
 
-          
-            <div class="alert-thread-ok"><?= $exito ?></div>
-          
-
           <div id="errores-js" style="display:none;" class="alert-thread-error">
             <strong>Por favor corrige:</strong>
             <ul id="lista-errores-js" style="margin:4px 0 0 16px; padding:0;"></ul>
           </div>
 
-          
-            <div class="alert-thread-error">
-              <strong>Por favor corrige:</strong>
-              <ul style="margin:4px 0 0 16px; padding:0;">
-                
-                  <li><?= $e ?></li>
-                
-              </ul>
-            </div>
-          
+          <div id="exito-js" style="display:none;" class="alert-thread-ok">
+            ¡Mensaje enviado con éxito! Te responderemos pronto.
+          </div>
 
-          <form id="form-contacto" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
-
+          <form id="form-contacto" novalidate>
             <div class="form-group-thread">
               <label class="form-label-thread" for="nombre">Nombre completo *</label>
-              <input class="form-input-thread" type="text" id="nombre" name="nombre"
-                value="<?= htmlspecialchars($datos['nombre'] ?? '') ?>"
-                placeholder="Ej. Ana García">
+              <input class="form-input-thread" type="text" id="nombre" name="nombre" placeholder="Ej. Ana García">
             </div>
-
             <div class="form-group-thread">
               <label class="form-label-thread" for="email">Correo electrónico *</label>
-              <input class="form-input-thread" type="email" id="email" name="email"
-                value="<?= htmlspecialchars($datos['email'] ?? '') ?>"
-                placeholder="correo@ejemplo.com">
+              <input class="form-input-thread" type="email" id="email" name="email" placeholder="correo@ejemplo.com">
             </div>
-
             <div class="form-group-thread">
               <label class="form-label-thread" for="telefono">Teléfono (opcional)</label>
-              <input class="form-input-thread" type="tel" id="telefono" name="telefono"
-                value="<?= htmlspecialchars($datos['telefono'] ?? '') ?>"
-                placeholder="771 000 0000">
+              <input class="form-input-thread" type="tel" id="telefono" name="telefono" placeholder="771 000 0000">
             </div>
-
             <div class="form-group-thread">
               <label class="form-label-thread" for="asunto">Asunto *</label>
               <select class="form-input-thread" id="asunto" name="asunto">
                 <option value="">-- Selecciona --</option>
-                
-                  <option value="<?= $op ?>" <?= $sel ?>><?= $op ?></option>
-                
+                <option value="Consulta de producto">Consulta de producto</option>
+                <option value="Disponibilidad">Disponibilidad</option>
+                <option value="Pedido">Pedido</option>
+                <option value="Envíos">Envíos</option>
+                <option value="Otro">Otro</option>
               </select>
             </div>
-
             <div class="form-group-thread">
               <label class="form-label-thread" for="mensaje">Mensaje *</label>
-              <textarea class="form-input-thread" id="mensaje" name="mensaje" rows="4"
-                placeholder="Escribe tu mensaje aquí..."><?= htmlspecialchars($datos['mensaje'] ?? '') ?></textarea>
+              <textarea class="form-input-thread" id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..."></textarea>
             </div>
-
             <button type="submit" class="btn-thread-submit">Enviar mensaje →</button>
           </form>
-
-          <p style="margin-top:12px; font-size:11px; color:#888;">
-            ¿Eres del equipo Thread?
-            <a href="../backoffice.html" style="color:#c0603a;">Ver backoffice →</a>
-          </p>
         </div>
       </div>
 
@@ -161,7 +128,6 @@
   </div>
 </section>
 
-<!-- Estilos del formulario -->
 <style>
 .thread-form-wrapper { background:#fff; border:1px solid #d4cfc7; border-top:3px solid #3d3a2e; padding:20px; border-radius:2px; }
 .form-group-thread  { margin-bottom:14px; }
@@ -176,64 +142,41 @@ textarea.form-input-thread { resize:vertical; }
 .alert-thread-error { background:#fdecea; border:1px solid #ef9a9a; color:#b71c1c; padding:10px 14px; border-radius:2px; font-size:13px; margin-bottom:12px; }
 </style>
 
-<!-- Validación JS del formulario -->
 <script>
   document.getElementById('form-contacto').addEventListener('submit', function(e) {
+    e.preventDefault();
     var errores = [];
-    var campos = {};
-
-    // Limpiar errores visuales previos
     document.querySelectorAll('.form-input-thread').forEach(function(c) { c.classList.remove('error'); });
     document.getElementById('errores-js').style.display = 'none';
+    document.getElementById('exito-js').style.display = 'none';
 
-    // Validar nombre
     var nombre = document.getElementById('nombre').value.trim();
-    if (!nombre) {
-      errores.push('El nombre es obligatorio.');
-      document.getElementById('nombre').classList.add('error');
-    } else if (nombre.length < 2) {
-      errores.push('El nombre debe tener al menos 2 caracteres.');
+    if (!nombre || nombre.length < 2) {
+      errores.push('El nombre es obligatorio (mínimo 2 caracteres).');
       document.getElementById('nombre').classList.add('error');
     }
-
-    // Validar email
     var email = document.getElementById('email').value.trim();
-    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email) {
-      errores.push('El correo electrónico es obligatorio.');
-      document.getElementById('email').classList.add('error');
-    } else if (!regexEmail.test(email)) {
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       errores.push('Escribe un correo electrónico válido.');
       document.getElementById('email').classList.add('error');
     }
-
-    // Validar teléfono (si se llenó, debe tener al menos 10 dígitos)
     var telefono = document.getElementById('telefono').value.trim();
     if (telefono && telefono.replace(/\D/g,'').length < 10) {
       errores.push('El teléfono debe tener al menos 10 dígitos.');
       document.getElementById('telefono').classList.add('error');
     }
-
-    // Validar asunto
     var asunto = document.getElementById('asunto').value;
     if (!asunto) {
       errores.push('Selecciona un asunto.');
       document.getElementById('asunto').classList.add('error');
     }
-
-    // Validar mensaje
     var mensaje = document.getElementById('mensaje').value.trim();
-    if (!mensaje) {
-      errores.push('El mensaje es obligatorio.');
-      document.getElementById('mensaje').classList.add('error');
-    } else if (mensaje.length < 10) {
+    if (!mensaje || mensaje.length < 10) {
       errores.push('El mensaje debe tener al menos 10 caracteres.');
       document.getElementById('mensaje').classList.add('error');
     }
 
-    // Si hay errores, mostrarlos y cancelar el envío
     if (errores.length > 0) {
-      e.preventDefault();
       var lista = document.getElementById('lista-errores-js');
       lista.innerHTML = '';
       errores.forEach(function(err) {
@@ -242,19 +185,15 @@ textarea.form-input-thread { resize:vertical; }
         lista.appendChild(li);
       });
       document.getElementById('errores-js').style.display = 'block';
-      window.scrollTo({ top: document.getElementById('form-contacto').offsetTop - 80, behavior: 'smooth' });
+    } else {
+      document.getElementById('form-contacto').reset();
+      document.getElementById('exito-js').style.display = 'block';
     }
   });
-
-  // Quitar clase error al escribir
   document.querySelectorAll('.form-input-thread').forEach(function(campo) {
     campo.addEventListener('input', function() { this.classList.remove('error'); });
   });
 </script>
-
-
-
-
 
 <hr class="divider">
 
