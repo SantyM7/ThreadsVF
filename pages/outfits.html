@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,25 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Thread — Plataforma de moda que te ayuda a descubrir tu estilo explorando por color, prenda y tendencia.">
   <meta name="keywords" content="moda, outfits, tendencias, ropa, estilo, Thread">
-  <title><?= htmlspecialchars($titulo) ?></title>
+  <title>Thread — Crea tu Outfit</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../estilo.css">
 </head>
 <body>
-
-
-
 <nav class="tnav">
   <a class="tnav-brand" href="../index.html">
     <img src="../img/logo/logo-jaguar-bc.png" alt="Thread logo">
     Thread
   </a>
   <div class="tnav-links">
-    <a href="../index.html"          <?= $paginaActual==='index.html'          ? 'class="active"':'' ?>>Inicio</a>
-    <a href="../pages/productos.html" <?= $paginaActual==='productos.html'      ? 'class="active"':'' ?>>Productos</a>
-    <a href="../pages/contacto.html"  <?= $paginaActual==='contacto.html'       ? 'class="active"':'' ?>>Contáctanos</a>
-    <a href="../pages/faq.html"       <?= $paginaActual==='faq.html'            ? 'class="active"':'' ?>>FAQ</a>
-    <a href="../pages/contacto.html"  class="btn-cuenta">Mi cuenta →</a>
+    <a href="../index.html" >Inicio</a>
+    <a href="../pages/productos.html" >Productos</a>
+    <a href="../pages/contacto.html" >Contáctanos</a>
+    <a href="../pages/faq.html" >FAQ</a>
+    <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
   </div>
   <button class="tnav-burger" id="burger" aria-label="Abrir menú" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -37,11 +33,7 @@
   <a href="../pages/contacto.html">Contáctanos</a>
   <a href="../pages/faq.html">FAQ</a>
   <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
-</div>
-
-
-
-<!-- OUTFIT BUILDER -->
+</div><!-- OUTFIT BUILDER -->
 <section id="outfits">
   <div class="breadcrumb" style="padding:0 0 10px;">05 / Crea tu Outfit</div>
   <span class="section-label">Herramienta</span>
@@ -54,19 +46,76 @@
         <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva); margin-bottom:12px; font-weight:bold;">MIS PRENDAS &nbsp; <span style="color:var(--terracota);">Arrastra →</span></p>
 
         
-        <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--texto-light); margin-top:16px; margin-bottom:8px;"><?= $cat ?></p>
+        <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--texto-light); margin-top:16px; margin-bottom:8px;">SUPERIOR</p>
         <table border="0" cellspacing="6" cellpadding="0" width="100%">
-          
           <tr>
-            
-            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="<?= $item[0] ?>" data-img="<?= $item[1] ?>" data-cat="<?= strtolower($cat) ?>">
-              <img src="<?= $item[1] ?>" alt="<?= $item[0] ?>" width="100%" loading="lazy"
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Camisa" data-img="../img/guardarropa/camisa-blanca.jpg" data-cat="superior">
+              <img src="../img/guardarropa/camisa-blanca.jpg" alt="Camisa" width="100%" loading="lazy"
                 style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
-              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);"><?= $item[0] ?></p>
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Camisa</p>
             </td>
-            
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Blazer" data-img="../img/guardarropa/blazer-camel.jpg" data-cat="superior">
+              <img src="../img/guardarropa/blazer-camel.jpg" alt="Blazer" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Blazer</p>
+            </td>
           </tr>
-          
+          <tr>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Blusa" data-img="../img/guardarropa/blusa-seda.jpg" data-cat="superior">
+              <img src="../img/guardarropa/blusa-seda.jpg" alt="Blusa" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Blusa</p>
+            </td>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Top" data-img="../img/guardarropa/top-tejido.jpeg" data-cat="superior">
+              <img src="../img/guardarropa/top-tejido.jpeg" alt="Top" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Top</p>
+            </td>
+          </tr>
+        </table>
+
+        <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--texto-light); margin-top:16px; margin-bottom:8px;">INFERIOR</p>
+        <table border="0" cellspacing="6" cellpadding="0" width="100%">
+          <tr>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Pantalon" data-img="../img/guardarropa/pantalon-negro.jpg" data-cat="inferior">
+              <img src="../img/guardarropa/pantalon-negro.jpg" alt="Pantalon" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Pantalon</p>
+            </td>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Falda" data-img="../img/guardarropa/falda-plisada.jpg" data-cat="inferior">
+              <img src="../img/guardarropa/falda-plisada.jpg" alt="Falda" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Falda</p>
+            </td>
+          </tr>
+          <tr>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Jeans" data-img="../img/guardarropa/jeans-rectos.jpg" data-cat="inferior">
+              <img src="../img/guardarropa/jeans-rectos.jpg" alt="Jeans" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Jeans</p>
+            </td>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Shorts" data-img="../img/guardarropa/shorts-lino.webp" data-cat="inferior">
+              <img src="../img/guardarropa/shorts-lino.webp" alt="Shorts" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Shorts</p>
+            </td>
+          </tr>
+        </table>
+
+        <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--texto-light); margin-top:16px; margin-bottom:8px;">CALZADO</p>
+        <table border="0" cellspacing="6" cellpadding="0" width="100%">
+          <tr>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Loafers" data-img="../img/guardarropa/loafers-cuero.jpg" data-cat="calzado">
+              <img src="../img/guardarropa/loafers-cuero.jpg" alt="Loafers" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Loafers</p>
+            </td>
+            <td width="50%" style="cursor:grab;" draggable="true" data-prenda="Sneakers" data-img="../img/guardarropa/sneakers-blancos.jpeg" data-cat="calzado">
+              <img src="../img/guardarropa/sneakers-blancos.jpeg" alt="Sneakers" width="100%" loading="lazy"
+                style="display:block; height:64px; object-fit:cover; background:var(--hueso); border-radius:var(--radius-sm); border:0.5px solid var(--borde);">
+              <p style="font-size:10px; margin-top:4px; font-family:var(--font-sans); color:var(--texto-med);">Sneakers</p>
+            </td>
+          </tr>
         </table>
         
       </td>
@@ -104,18 +153,31 @@
 
           
           <div class="ia-suggestion">
-            <h4><?= $s[0] ?></h4>
-            <p><?= $s[1] ?></p>
-            <button class="btn-sm-dark" style="border:none; cursor:pointer;" onclick="aplicarSugerencia('<?= $s[0] ?>')">Aplicar →</button>
+            <h4>Casual Chic</h4>
+            <p>Camisa lino + wide leg + loafers blancos</p>
+            <button class="btn-sm-dark" style="border:none; cursor:pointer;" onclick="aplicarSugerencia('Casual Chic')">Aplicar →</button>
+          </div>
+          <div class="ia-suggestion">
+            <h4>Weekend Look</h4>
+            <p>Cardigan + jeans + sneakers clean</p>
+            <button class="btn-sm-dark" style="border:none; cursor:pointer;" onclick="aplicarSugerencia('Weekend Look')">Aplicar →</button>
+          </div>
+          <div class="ia-suggestion">
+            <h4>Oficina Creativa</h4>
+            <p>Blazer + blusa seda + pantalon sastre</p>
+            <button class="btn-sm-dark" style="border:none; cursor:pointer;" onclick="aplicarSugerencia('Oficina Creativa')">Aplicar →</button>
+          </div>
+          <div class="ia-suggestion">
+            <h4>Noche Mínima</h4>
+            <p>Vestido midi + loafers + bolso estructurado</p>
+            <button class="btn-sm-dark" style="border:none; cursor:pointer;" onclick="aplicarSugerencia('Noche Mínima')">Aplicar →</button>
           </div>
           
 
           <p style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva); margin-top:18px; margin-bottom:8px; font-weight:bold;">Paleta sugerida</p>
           <table border="0" cellspacing="5" cellpadding="0">
             <tr>
-              
-              <td><img src="https://placehold.co/30x30/<?= $hex ?>?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td>
-              
+              <td><img src="https://placehold.co/30x30/f5f3ef/ccc?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td><td><img src="https://placehold.co/30x30/4a4a2a/fff?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td><td><img src="https://placehold.co/30x30/7a7550/fff?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td><td><img src="https://placehold.co/30x30/c0603a/fff?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td><td><img src="https://placehold.co/30x30/2c3e50/fff?text=+" alt="" width="30" style="height:30px; border-radius:50%; border:0.5px solid var(--borde);"></td>
             </tr>
           </table>
         </div>
@@ -196,12 +258,7 @@
       <td align="right">
         <table border="0" cellspacing="0" cellpadding="24">
           <tr>
-            
-            <td align="center">
-              <p class="stat-num"><?= $s[0] ?></p>
-              <p class="stat-label"><?= $s[1] ?></p>
-            </td>
-            
+            <tr><td align="center"><p class="stat-num">34</p><p class="stat-label">Prendas</p></td><td align="center"><p class="stat-num">12</p><p class="stat-label">Outfits</p></td><td align="center"><p class="stat-num">8</p><p class="stat-label">Colores</p></td><td align="center"><p class="stat-num">5</p><p class="stat-label">Ocasiones</p></td></tr>
           </tr>
         </table>
       </td>
@@ -224,8 +281,6 @@
 
   
 </section>
-
-
 
 
 
