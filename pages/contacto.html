@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Thread — Plataforma de moda que te ayuda a descubrir tu estilo explorando por color, prenda y tendencia.">
+  <meta name="keywords" content="moda, outfits, tendencias, ropa, estilo, Thread">
+  <title><?= htmlspecialchars($titulo) ?></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../estilo.css">
+</head>
+<body>
+
+
+
+<nav class="tnav">
+  <a class="tnav-brand" href="../index.html">
+    <img src="../img/logo/logo-jaguar-bc.png" alt="Thread logo">
+    Thread
+  </a>
+  <div class="tnav-links">
+    <a href="../index.html"          <?= $paginaActual==='index.html'          ? 'class="active"':'' ?>>Inicio</a>
+    <a href="../pages/productos.html" <?= $paginaActual==='productos.html'      ? 'class="active"':'' ?>>Productos</a>
+    <a href="../pages/contacto.html"  <?= $paginaActual==='contacto.html'       ? 'class="active"':'' ?>>Contáctanos</a>
+    <a href="../pages/faq.html"       <?= $paginaActual==='faq.html'            ? 'class="active"':'' ?>>FAQ</a>
+    <a href="../pages/contacto.html"  class="btn-cuenta">Mi cuenta →</a>
+  </div>
+  <button class="tnav-burger" id="burger" aria-label="Abrir menú" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="tnav-mobile" id="mobileMenu">
+  <a href="../index.html">Inicio</a>
+  <a href="../pages/productos.html">Productos</a>
+  <a href="../pages/contacto.html">Contáctanos</a>
+  <a href="../pages/faq.html">FAQ</a>
+  <a href="../pages/contacto.html" class="btn-cuenta">Mi cuenta →</a>
+</div>
+
+
+
+<section id="contacto" class="py-5 px-4" style="background-color:var(--crema);">
+  <div class="container">
+    <span class="section-label">Habla con nosotros</span>
+    <h2 class="section-heading" style="margin-bottom:28px;">Contáctanos</h2>
+
+    <div class="row g-4">
+
+      <!-- Info de contacto -->
+      <div class="col-lg-4">
+        <div class="tarjeta-contacto destacada h-100">
+          <h5 style="font-family:var(--font-serif); font-size:18px; font-weight:normal; margin-bottom:16px;">Encuéntranos</h5>
+          <p style="margin-bottom:14px; font-size:13px; line-height:1.7; color:var(--texto-med);">
+            <strong style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva);">Dirección</strong><br>
+            Instituto Tecnológico de Pachuca, Carr. Mexico-Pachuca Km. 87.5, Pachuca de Soto, Hidalgo.
+          </p>
+          <p style="margin-bottom:14px; font-size:13px; color:var(--texto-med);">
+            <strong style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva);">Teléfono</strong><br>
+            <a href="tel:7711111111" style="color:var(--oliva); text-decoration:none;">771 111 11 11</a>
+          </p>
+          <p style="margin-bottom:18px; font-size:13px; color:var(--texto-med);">
+            <strong style="font-family:var(--font-sans); font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--oliva); display:block; margin-bottom:8px;">WhatsApp</strong>
+            <a href="https://wa.me/527711111111" target="_blank"
+              style="background:#25d366; color:#fff; padding:9px 20px; text-decoration:none; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; font-family:var(--font-sans); border-radius:999px; display:inline-block;">
+              Escríbenos en WhatsApp
+            </a>
+          </p>
+          <p style="font-size:12px; color:var(--texto-light); font-family:var(--font-sans); letter-spacing:0.5px; line-height:1.8;">
+            Lun – Vie: 9:00 – 18:00 hrs<br>
+            Sáb: 10:00 – 14:00 hrs
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="col-lg-4">
+        <div class="thread-form-wrapper">
+          <h5 style="font-family:Georgia,serif; font-weight:normal; margin-bottom:12px;">Envíanos un mensaje</h5>
+
+          
+            <div class="alert-thread-ok"><?= $exito ?></div>
+          
+
+          <div id="errores-js" style="display:none;" class="alert-thread-error">
+            <strong>Por favor corrige:</strong>
+            <ul id="lista-errores-js" style="margin:4px 0 0 16px; padding:0;"></ul>
+          </div>
+
+          
+            <div class="alert-thread-error">
+              <strong>Por favor corrige:</strong>
+              <ul style="margin:4px 0 0 16px; padding:0;">
+                
+                  <li><?= $e ?></li>
+                
+              </ul>
+            </div>
+          
+
+          <form id="form-contacto" action="https://formspree.io/f/your-form-id" method="POST" novalidate>
+
+            <div class="form-group-thread">
+              <label class="form-label-thread" for="nombre">Nombre completo *</label>
+              <input class="form-input-thread" type="text" id="nombre" name="nombre"
+                value="<?= htmlspecialchars($datos['nombre'] ?? '') ?>"
+                placeholder="Ej. Ana García">
+            </div>
+
+            <div class="form-group-thread">
+              <label class="form-label-thread" for="email">Correo electrónico *</label>
+              <input class="form-input-thread" type="email" id="email" name="email"
+                value="<?= htmlspecialchars($datos['email'] ?? '') ?>"
+                placeholder="correo@ejemplo.com">
+            </div>
+
+            <div class="form-group-thread">
+              <label class="form-label-thread" for="telefono">Teléfono (opcional)</label>
+              <input class="form-input-thread" type="tel" id="telefono" name="telefono"
+                value="<?= htmlspecialchars($datos['telefono'] ?? '') ?>"
+                placeholder="771 000 0000">
+            </div>
+
+            <div class="form-group-thread">
+              <label class="form-label-thread" for="asunto">Asunto *</label>
+              <select class="form-input-thread" id="asunto" name="asunto">
+                <option value="">-- Selecciona --</option>
+                
+                  <option value="<?= $op ?>" <?= $sel ?>><?= $op ?></option>
+                
+              </select>
+            </div>
+
+            <div class="form-group-thread">
+              <label class="form-label-thread" for="mensaje">Mensaje *</label>
+              <textarea class="form-input-thread" id="mensaje" name="mensaje" rows="4"
+                placeholder="Escribe tu mensaje aquí..."><?= htmlspecialchars($datos['mensaje'] ?? '') ?></textarea>
+            </div>
+
+            <button type="submit" class="btn-thread-submit">Enviar mensaje →</button>
+          </form>
+
+          <p style="margin-top:12px; font-size:11px; color:#888;">
+            ¿Eres del equipo Thread?
+            <a href="../backoffice.html" style="color:#c0603a;">Ver backoffice →</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Mapa -->
+      <div class="col-lg-4">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.02!2d-98.7771688!3d20.0837769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a1d7c0f1cfa3%3A0x122870c3429e18a8!2sInstituto+Tecnol%C3%B3gico+de+Pachuca+(ITP)!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+          width="100%" height="380" style="border:0; border-radius:var(--radius-md);" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Estilos del formulario -->
+<style>
+.thread-form-wrapper { background:#fff; border:1px solid #d4cfc7; border-top:3px solid #3d3a2e; padding:20px; border-radius:2px; }
+.form-group-thread  { margin-bottom:14px; }
+.form-label-thread  { display:block; font-size:12px; font-weight:bold; color:#555; margin-bottom:4px; font-family:sans-serif; }
+.form-input-thread  { width:100%; padding:9px 12px; border:1px solid #ccc; border-radius:2px; font-family:Georgia,serif; font-size:13px; background:#faf9f7; color:#2c2c2c; box-sizing:border-box; transition:border-color 0.2s; }
+.form-input-thread:focus  { outline:none; border-color:#7a7550; }
+.form-input-thread.error  { border-color:#c0603a; }
+textarea.form-input-thread { resize:vertical; }
+.btn-thread-submit { background:#3d3a2e; color:#f5f3ef; border:none; padding:10px 24px; font-family:Georgia,serif; font-size:13px; border-radius:2px; cursor:pointer; width:100%; margin-top:4px; transition:background 0.2s; }
+.btn-thread-submit:hover   { background:#5c5830; }
+.alert-thread-ok    { background:#e8f5e9; border:1px solid #a5d6a7; color:#2e7d32; padding:10px 14px; border-radius:2px; font-size:13px; margin-bottom:12px; }
+.alert-thread-error { background:#fdecea; border:1px solid #ef9a9a; color:#b71c1c; padding:10px 14px; border-radius:2px; font-size:13px; margin-bottom:12px; }
+</style>
+
+<!-- Validación JS del formulario -->
+<script>
+  document.getElementById('form-contacto').addEventListener('submit', function(e) {
+    var errores = [];
+    var campos = {};
+
+    // Limpiar errores visuales previos
+    document.querySelectorAll('.form-input-thread').forEach(function(c) { c.classList.remove('error'); });
+    document.getElementById('errores-js').style.display = 'none';
+
+    // Validar nombre
+    var nombre = document.getElementById('nombre').value.trim();
+    if (!nombre) {
+      errores.push('El nombre es obligatorio.');
+      document.getElementById('nombre').classList.add('error');
+    } else if (nombre.length < 2) {
+      errores.push('El nombre debe tener al menos 2 caracteres.');
+      document.getElementById('nombre').classList.add('error');
+    }
+
+    // Validar email
+    var email = document.getElementById('email').value.trim();
+    var regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      errores.push('El correo electrónico es obligatorio.');
+      document.getElementById('email').classList.add('error');
+    } else if (!regexEmail.test(email)) {
+      errores.push('Escribe un correo electrónico válido.');
+      document.getElementById('email').classList.add('error');
+    }
+
+    // Validar teléfono (si se llenó, debe tener al menos 10 dígitos)
+    var telefono = document.getElementById('telefono').value.trim();
+    if (telefono && telefono.replace(/\D/g,'').length < 10) {
+      errores.push('El teléfono debe tener al menos 10 dígitos.');
+      document.getElementById('telefono').classList.add('error');
+    }
+
+    // Validar asunto
+    var asunto = document.getElementById('asunto').value;
+    if (!asunto) {
+      errores.push('Selecciona un asunto.');
+      document.getElementById('asunto').classList.add('error');
+    }
+
+    // Validar mensaje
+    var mensaje = document.getElementById('mensaje').value.trim();
+    if (!mensaje) {
+      errores.push('El mensaje es obligatorio.');
+      document.getElementById('mensaje').classList.add('error');
+    } else if (mensaje.length < 10) {
+      errores.push('El mensaje debe tener al menos 10 caracteres.');
+      document.getElementById('mensaje').classList.add('error');
+    }
+
+    // Si hay errores, mostrarlos y cancelar el envío
+    if (errores.length > 0) {
+      e.preventDefault();
+      var lista = document.getElementById('lista-errores-js');
+      lista.innerHTML = '';
+      errores.forEach(function(err) {
+        var li = document.createElement('li');
+        li.textContent = err;
+        lista.appendChild(li);
+      });
+      document.getElementById('errores-js').style.display = 'block';
+      window.scrollTo({ top: document.getElementById('form-contacto').offsetTop - 80, behavior: 'smooth' });
+    }
+  });
+
+  // Quitar clase error al escribir
+  document.querySelectorAll('.form-input-thread').forEach(function(campo) {
+    campo.addEventListener('input', function() { this.classList.remove('error'); });
+  });
+</script>
+
+
+
+
+
+<hr class="divider">
+
+<footer>
+  <table border="0" width="100%" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>
+        <strong style="color:var(--crema); font-family:var(--font-serif); letter-spacing:2px;">Thread</strong>
+        &nbsp;
+        <em style="color:rgba(160,153,122,0.8); font-size:11px;">Wear the Moment</em>
+      </td>
+      <td align="center">
+        <a href="../index.html">Inicio</a>
+        <a href="../pages/productos.html">Productos</a>
+        <a href="../pages/tendencias.html">Tendencias</a>
+        <a href="../pages/outfits.html">Outfits</a>
+        <a href="../pages/tienda.html">Tienda</a>
+        <a href="../pages/nosotros.html">Nosotros</a>
+        <a href="../pages/contacto.html">Contacto</a>
+        <a href="../pages/faq.html">FAQ</a>
+      </td>
+      <td align="right">
+        <small style="color:rgba(160,153,122,0.7);">© 2026 Thread</small>
+      </td>
+    </tr>
+  </table>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function toggleMenu() {
+    var m = document.getElementById('mobileMenu');
+    var b = document.getElementById('burger');
+    var open = m.style.display === 'flex';
+    m.style.display = open ? 'none' : 'flex';
+    b.classList.toggle('open', !open);
+  }
+</script>
+</body>
+</html>
